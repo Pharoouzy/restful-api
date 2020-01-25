@@ -16,3 +16,13 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Route::prefix('country')->group(function(){
+//     Route::post('/', 'Country\CountryController@addCountry');
+//     Route::get('/', 'Country\CountryController@country');
+//     Route::get('{id}', 'Country\CountryController@countryById');
+//     Route::put('{id}', 'Country\CountryController@updateCountry');
+//     Route::delete('{id}', 'Country\CountryController@deleteCountry');
+// });
+
+Route::apiResource('country', 'Country\Country');
