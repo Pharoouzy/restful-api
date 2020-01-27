@@ -40,7 +40,9 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:60,1',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \App\HttP\Middleware\AuthKey::class,
+            // \Laravel\Passport\Http\Middleware\CreateFreshApiToken::class,
+            // \App\Http\Middleware\AuthBasic::class,
+            // \App\Http\Middleware\AuthKey::class,
         ],
     ];
 
@@ -62,6 +64,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'client_credentials' => \Laravel\Passport\Http\Middleware\CheckClientCredentials::class,
     ];
 
     /**

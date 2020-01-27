@@ -14,7 +14,7 @@ class Country extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $countries = CountryModel::get();
+        $countries = CountryModel::paginate(10);
 
         return response()->json($countries, 200);
     }
